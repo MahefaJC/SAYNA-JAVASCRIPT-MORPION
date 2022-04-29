@@ -1,6 +1,7 @@
 // Informations utiles
 const statut = document.querySelector("h2")
-let gameActif = truelet gamerActif = "X"
+let jeuActif = true
+let gamerActif = "X"
 let etatJeu = ["", "", "", "", "", "", "", "", ""]
 
 const conditionsVictoire = [
@@ -11,18 +12,22 @@ const conditionsVictoire = [
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 8],
+    [2, 4, 6],
     
 ]
+
 // Messages
-const gagne = () ==> 'Gamer ${gamerActif} win'
-const egalite = () ==> "Egalité"
-const tourGamer = () ==> "Other gamer" ${gamerActif}
+const gagne = () =>'Le joueur ${gamerActif} a gagné'
+const egalite = () => "Egalité"
+const tourJoueur = () => "C'est au tour du joueur $
+{gamerActif}"
 
-statut.idnnerHTML = tourGamer()
+statut.innerHTML = tourJoueur()
 
-document.querySelectorAll(".case").forEach(cell ==> cell.addEventListener("click", gestionClicCase))
-document.quertySelector("#restart").addEventListener("click", restart)
+document.querySelectorAll(".case").forEach(cell => cell.
+    addEventListener("click", gestionClicCase))
+document.quertySelector("#restart").addEventListener
+("click", restart)
 
 function gestionClicCase(){
     //récuperation de l'index de la case cliquée
@@ -32,5 +37,7 @@ function gestionClicCase(){
         return
     }
 
-    gestionClicCase(this, indexCase)
+    etatJeu[indexCase] = gamerActif
+    this.innerHTML = gamerActif
 }
+
